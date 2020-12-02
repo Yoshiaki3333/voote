@@ -1,0 +1,22 @@
+<% unless user_signed_in? %>
+<nav class="global-nav">
+     <ul>
+          <li class="menu_btn_top">
+               <%= link_to 'ログイン', new_user_session_path, method: :get %>
+          </li>
+               <li class="menu_btn_top">
+                    <%= link_to '新規登録', new_user_registration_path, method: :get %>
+               </li>
+          </ul>
+</nav>
+
+<% else %>
+<%= form_for(@member) do |f| %>
+     <%= f.text_field :name, placeholder: "名前を記入" %>
+     <%= f.submit "参加する" %>
+<% end %>
+<p>【ガバナ参加者】</p>
+<%= render partial: 'member', collection: @members %>
+
+<p><%= link_to '投票結果を見る', '/top', method: :get %></P>
+<% end %>

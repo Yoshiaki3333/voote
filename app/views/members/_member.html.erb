@@ -1,0 +1,8 @@
+<%= form_tag("/members/#{member.id}/likes", method: :post) do %>
+<%= simple_format(member.name) %>
+    <input class="post-btn" type="submit" value="投票する">
+<% end %>
+    <%= link_to "投票をやめる", "/members/#{member.id}/likes", method: :delete %>
+
+
+ 

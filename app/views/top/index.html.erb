@@ -1,0 +1,10 @@
+<p><% @ranking.each do |ranking| %></p>
+    <%= ranking.name %>
+    <%= ranking.likes.count %>票
+<% end %>
+<p><% @members.each do |member| %></p>
+    <% if  member.likes.count == 0 %>
+        <%= member.name %>
+        <%= member.likes.count %>票
+    <% end %>
+<% end %>
